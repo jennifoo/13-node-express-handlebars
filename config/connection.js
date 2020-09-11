@@ -17,3 +17,4 @@ connection.connect(function(err) {
 });
 
 module.exports = connection;
+// This exports connection for the ORM file to use.
