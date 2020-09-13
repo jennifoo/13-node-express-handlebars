@@ -1,0 +1,30 @@
+
+
+<div class="row">
+  <div class="col-6">
+    <h2>YO! Fresh Burgers</h2>
+    <ul>
+      {{#each burger}}
+        {{unless devoured }}
+          <li>
+            {{burger_name}}
+          </li>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="col-6">
+    <h2>Burgers in YO'L Belly</h2>
+    <ul>
+      {{#each burger}}
+        {{if devoured }}
+          <li>
+            {{burger_name}}
+          </li>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+</div>
