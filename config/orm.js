@@ -22,9 +22,11 @@ function objToSql(ob) {
       arr.push(key + "=" + value);
     }
   }
+  return arr.toString();
 }
 
 var orm = {
+  // HANDLE GET REQUEST
   selectAll: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
@@ -34,6 +36,7 @@ var orm = {
       cb(result);
     });
   },
+  // HANDLE POST REQUEST
   insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
     // console.log(vals);
@@ -54,12 +57,13 @@ var orm = {
       cb(result);
     })
   },
+  // HANDLE PUT REQUEST
   // An example of objColVals would be {name: cougar, hungry: false}
   updateOne: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
-    queryString += " SET";
-    queryString += objtoSql(objColVals);
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
     queryString += " WHERE ";
     queryString += condition;
 
@@ -71,7 +75,7 @@ var orm = {
       cb(result);
     })
   }
-}
+} // End Orm
 
 module.exports = orm;
 // Exports the orm object for the model.

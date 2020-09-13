@@ -1,9 +1,10 @@
 // Function wraps code to wait to attach handlers until DOM is fully loaded.
 
-// Post Function
+
 $(function() {
+  // POST request
   $(".create-burger").on("submit", function(event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     var newBurger = {
       burger_name: $("#bu").val().trim(),
@@ -25,4 +26,27 @@ $(function() {
       }
     );
   });
+
+  // PUT REQUEST
+  $(".devourBtn").on("click", function(event){
+    event.preventDefault();
+
+    var id = $(this).data("id");
+    console.log(id);
+    var newState = {
+      devoured: 1
+    };
+    // Column to change: devoured
+    // New values: true
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: newState
+    }).then(
+      function(){
+        console.log("updated burger");
+        location.reload();
+      }
+    );
+  });
+
 });
