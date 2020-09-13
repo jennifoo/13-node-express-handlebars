@@ -5,7 +5,7 @@
     <h2>YO! Fresh Burgers</h2>
     <ul>
       {{#each burger}}
-        {{unless devoured }}
+        {{#unless devoured}}
           <li>
             {{burger_name}}
           </li>
@@ -18,11 +18,11 @@
     <h2>Burgers in YO'L Belly</h2>
     <ul>
       {{#each burger}}
-        {{if devoured }}
+        {{#if devoured}}
           <li>
             {{burger_name}}
           </li>
-        {{/unless}}
+        {{/if}}
       {{/each}}
     </ul>
   </div>
