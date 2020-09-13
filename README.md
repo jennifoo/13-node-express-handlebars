@@ -8,7 +8,7 @@ This application is deployed to Heroku.
 
 ## View Application:
 
-* [Heroku Link](#)
+* [Heroku Link](https://jenn-13-nodeexpresshandlebars.herokuapp.com/)
 
 <img src ="./node-express-handlebars-app.png" alt="node express handlebars application">
 
