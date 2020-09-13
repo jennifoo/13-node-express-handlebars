@@ -1,3 +1,4 @@
+// Import MySQL connection.
 var connection = require("../config/connection.js")
 
 // Pass in value length of array and it converts the length to that many question marks

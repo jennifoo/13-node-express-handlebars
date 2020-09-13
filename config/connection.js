@@ -1,3 +1,4 @@
+// Set up MySQL connection.
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
@@ -17,4 +18,4 @@ connection.connect(function(err) {
 });
 
 module.exports = connection;
-// This exports connection for the ORM file to use.
+// Exports connection for the ORM file to use.
