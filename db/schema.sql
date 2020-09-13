@@ -4,10 +4,8 @@ USE burgers_db;
 
 CREATE TABLE burgers
 (
-	id INT NOT NULL AUTO_INCREMENT,
+	id INT AUTO_INCREMENT NOT NULL,
 	burger_name varchar(255),
 	devoured BOOLEAN DEFAULT false,
-	PRIMARY KEY (id)
+	PRIMARY KEY(id)
 );
-
-SELECT * FROM burgers;
