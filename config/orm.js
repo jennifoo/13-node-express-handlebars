@@ -11,15 +11,18 @@ function printQuestionMarks(num) {
 }
 
 // Converts object into an array with a single comma seperated string.
-// for (var key in ob) {
-//   var value = ob[key];
-//   if (Object.hasOwnProperty.call(ob, key)) {
-//     if (typeof value === "string" && value.indexOf(" ") >= 0) {
-//       value = "'" + value + "'";
-//     }
-//     arr.push(key + "=" + value);
-//   }
-// }
+function objToSql(ob) {
+  var arr = [];
+  for (var key in ob) {
+    var value = ob[key];
+    if (Object.hasOwnProperty.call(ob, key)) {
+      if (typeof value === "string" && value.indexOf(" ") >= 0) {
+        value = "'" + value + "'";
+      }
+      arr.push(key + "=" + value);
+    }
+  }
+}
 
 var orm = {
   selectAll: function(tableInput, cb) {
@@ -33,7 +36,9 @@ var orm = {
   },
   insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
-
+    // console.log(vals);
+    // vals is an array with the columns values
+    // -----> [ 'Red Burger', 'false' ]
     queryString += " (";
     queryString += cols.toString();
     queryString += ") ";
@@ -42,7 +47,7 @@ var orm = {
     queryString += ") ";
 
     console.log(queryString);
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, vals, function(err, result) {
       if (err) {
         throw err;
       }
