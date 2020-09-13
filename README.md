@@ -10,7 +10,7 @@ This application is deployed to Heroku.
 
 * [Heroku Link](#)
 
-<img src ="./assets/node-express-handlebars-app.png" alt="node express handlebars application">
+<img src ="./node-express-handlebars-app.png" alt="node express handlebars application">
 
 ## Functionality
 
