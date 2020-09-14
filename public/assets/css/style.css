@@ -21,3 +21,8 @@ header {
 .form-div {
   text-align: center;
 }
+
+
+html, body {
+  background-color: #eee !important;
+}
